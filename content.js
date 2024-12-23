@@ -4,8 +4,12 @@ window.addEventListener("load", () => {
     style.textContent = `
       @media screen and (min-width: 768px) {
         .newly-added-items__item__image_item img {
-          max-height: 350px !important;
+          max-height: 250px !important;
         }
+
+        .newly-added-items__item {
+            width: 250px !important;
+          }
       }
     `;
     document.head.appendChild(style);
