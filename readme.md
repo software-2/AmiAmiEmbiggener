@@ -2,6 +2,13 @@ You know how AmiAmi constantly has those server overloaded errors? Yeah, that's 
 
 This was haphazarly slapped together in less time than it took me to write documentation and post it online. I'm sure there's more elegant (read: sane) ways of doing this, but you see, I'm incredibly lazy. In fact, as soon as I got ready to push this to github I realized this would be better as a greasemonkey script. Oh well! Ship it!
 
+## Example
+Before:
+![Before](https://github.com/software-2/AmiAmiEmbiggener/blob/master/examples/before.jpg?raw=true)
+
+After:
+![After](https://github.com/software-2/AmiAmiEmbiggener/blob/master/examples/after.jpg?raw=true)
+
 ## Installation
 
 I'm not maintaining this enough to put it on the Chrome store. You can easily install it in developer mode.
