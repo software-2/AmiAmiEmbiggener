@@ -1,0 +1,14 @@
+{
+    "manifest_version": 3,
+    "name": "AmiAmi Embiggener",
+    "version": "1.0",
+    "description": "Makes the preview images at AmiAmi larger for easier skimming.",
+    "permissions": ["scripting"],
+    "host_permissions": ["https://*.amiami.com/*"],
+    "content_scripts": [
+      {
+        "matches": ["https://*.amiami.com/*"],
+        "js": ["content.js"]
+      }
+    ]
+  }
