@@ -4,9 +4,11 @@ This was haphazarly slapped together in less time than it took me to write docum
 
 ## Example
 Before:
+
 ![Before](https://github.com/software-2/AmiAmiEmbiggener/blob/master/examples/before.jpg?raw=true)
 
 After:
+
 ![After](https://github.com/software-2/AmiAmiEmbiggener/blob/master/examples/after.jpg?raw=true)
 
 ## Installation
