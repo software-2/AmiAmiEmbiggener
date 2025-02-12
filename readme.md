@@ -17,7 +17,13 @@ Impulse buy more plastic toys you don't need by improving the AmiAmi browsing ex
 
 ## Installation
 
-I'm not maintaining this enough to put it on the Chrome store. You can easily install it in developer mode.
+I'm not maintaining this enough to put it on the web extension stores and deal with all that headache.
+
+### Chrome
+You can easily install it in developer mode.
 - Go to `chrome://extensions/`
 - Click Load Unpacked
 - Select the folder this extension is saved to
+
+### Firefox
+Mozilla continues to make life unnecessarily harder for everyone. To run unsigned extensions you have to do a bunch of arcane things that vary per operating systen. I added some changes to the manifest that should allow it to work. Or you can go sign your own version with Mozilla.
