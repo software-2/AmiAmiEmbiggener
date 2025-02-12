@@ -73,3 +73,75 @@ document.addEventListener("keydown", (event) => {
     clearInterval(interval);
   }, 10000);
 })();
+
+
+// Embed images directly into the page
+(function() {
+  // Poll every 500ms to see if both required elements are loaded.
+  const pollInterval = 500; // milliseconds
+  const maxAttempts = 60;   // e.g., 60 attempts = 30 seconds max (adjust as needed)
+  let attempts = 0;
+  
+  const intervalId = setInterval(() => {
+    attempts++;
+    
+    const pager = document.querySelector("div.item-detail__pager");
+    const itemAbout = document.querySelector("section.item-about");
+    
+    // When both elements exist, clear the polling and execute the script.
+    if (pager && itemAbout) {
+      clearInterval(intervalId);
+      
+      // Gather image URLs from each <a> element.
+      const imageLinks = pager.querySelectorAll("a");
+      const imageUrls = [];
+      
+      imageLinks.forEach(link => {
+        // Try to read the URL from the custom 'src' attribute.
+        let url = link.getAttribute("src");
+        if (!url) {
+          // Fallback: try getting it from the inner <img> tag.
+          const img = link.querySelector("img");
+          if (img) {
+            url = img.src;
+          }
+        }
+        if (url) {
+          imageUrls.push(url);
+        }
+      });
+      
+      // If there is only one image, do nothing.
+      if (imageUrls.length <= 1) {
+        return;
+      }
+      
+      // Omit the first image from the list.
+      const imagesToDisplay = imageUrls.slice(1);
+      
+      // Create a container for the additional images.
+      const imageContainer = document.createElement("div");
+      imageContainer.style.marginTop = "20px"; // Add spacing at the top
+      
+      // Create an image element for each URL.
+      imagesToDisplay.forEach(url => {
+        const img = document.createElement("img");
+        img.src = url;
+        img.alt = "Additional image";
+        img.style.maxWidth = "100%";  // Responsive images
+        img.style.display = "block";
+        img.style.marginBottom = "10px"; // Spacing between images
+        imageContainer.appendChild(img);
+      });
+      
+      // Append the container to the end of the 'item-about' section.
+      itemAbout.appendChild(imageContainer);
+    }
+    
+    // Stop polling after a maximum number of attempts.
+    if (attempts >= maxAttempts) {
+      clearInterval(intervalId);
+      console.warn("AmiAmi Image Embedder: Required elements not found after maximum attempts.");
+    }
+  }, pollInterval);
+})();

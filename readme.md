@@ -4,6 +4,8 @@ Impulse buy more plastic toys you don't need by improving the AmiAmi browsing ex
   - The site gives you higher res images than what's shown by default, so if we make them bigger you can see more details without having to open each item. 
 - JAN codes on product pages links directly to MyFigureCollection
   - No more copy/pasting codes when there's just a box picture
+- Pictures are embedded directly into the product page
+  - Because clicking "View all pictures" is annoying.
 - Keyboard navigation added.
   - Left/Right arrow keys take you to the previous/next page of items.
 
