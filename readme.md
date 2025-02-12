@@ -1,21 +1,17 @@
-You know how AmiAmi constantly has those server overloaded errors? Yeah, that's in part because they don't scale their images down to the smallest size necessary. Instead, they serve you pretty large images and then scale them down. When browsing through the used or preorder list, this extension makes the images bigger to make impulse purchasing needless plastic toys easier.
+Impulse buy more plastic toys you don't need by improving the AmiAmi browsing experience!
 
-This was haphazardly slapped together in less time than it took me to write documentation and post it online. I'm sure there's more elegant (read: sane) ways of doing this, but you see, I'm incredibly lazy. In fact, as soon as I got ready to push this to github I realized this would be better as a greasemonkey script. Oh well! Ship it!
+- Embiggens images in the used or preorder lists (in higher detail)
+  - The site gives you higher res images than what's shown by default, so if we make them bigger you can see more details without having to open each item. 
+- JAN codes on product pages links directly to MyFigureCollection
+  - No more copy/pasting codes when there's just a box picture
+- Keyboard navigation added.
+  - Left/Right arrow keys take you to the previous/next page of items.
 
-## Scope Creep
-
-Clicking the next page button is annoying. I added keyboard arrow navigation to pages.
 
 ## Example
-(Github may be scaling these images down at different sizes. Click on them to get true scale difference.)
 
-Before:
+![Before](https://github.com/software-2/AmiAmiEmbiggener/blob/master/examples/example.jpg?raw=true)
 
-![Before](https://github.com/software-2/AmiAmiEmbiggener/blob/master/examples/before.jpg?raw=true)
-
-After:
-
-![After](https://github.com/software-2/AmiAmiEmbiggener/blob/master/examples/after.jpg?raw=true)
 
 ## Installation
 
