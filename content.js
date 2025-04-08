@@ -145,3 +145,20 @@ document.addEventListener("keydown", (event) => {
     }
   }, pollInterval);
 })();
+
+
+// Refresh page if System Error Occured happens
+(function () {
+  // Poll every 500ms looking for the error
+  const interval = setInterval(() => {
+    if (document.body.innerText.includes("Please try again a little later.")) {
+      location.reload();
+      clearInterval(interval);
+    }
+  }, 500);
+
+  // Stop polling after 10 seconds if element never appears
+  setTimeout(() => {
+    clearInterval(interval);
+  }, 10000);
+})();
