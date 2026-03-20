@@ -147,6 +147,53 @@ document.addEventListener("keydown", (event) => {
 })();
 
 
+// Convert order list items to real hyperlinks
+(function () {
+  function convertOrderLinks() {
+    const orderItems = document.querySelectorAll('div.order-list__item');
+    if (orderItems.length === 0) return false;
+
+    const pathMatch = window.location.pathname.match(/^\/(\w+)\/(\w+)/);
+    if (!pathMatch) return false;
+
+    const lang = pathMatch[1];
+    const section = pathMatch[2];
+
+    orderItems.forEach(item => {
+      if (item.parentElement && item.parentElement.tagName === 'A') return;
+
+      const label = item.querySelector('.order-list__item_label');
+      if (!label) return;
+
+      const match = label.textContent.match(/(\d+)\s*$/);
+      if (!match) return;
+
+      const orderNumber = match[1];
+      const url = `/${lang}/${section}/2?d_no=${orderNumber}`;
+
+      const a = document.createElement('a');
+      a.href = url;
+      a.style.textDecoration = 'none';
+      a.style.color = 'inherit';
+      a.style.display = 'block';
+
+      item.parentElement.insertBefore(a, item);
+      a.appendChild(item);
+    });
+
+    return true;
+  }
+
+  const interval = setInterval(() => {
+    if (convertOrderLinks()) {
+      clearInterval(interval);
+    }
+  }, 500);
+
+  setTimeout(() => clearInterval(interval), 10000);
+})();
+
+
 // Refresh page if System Error Occured happens
 (function () {
   // Poll every 500ms looking for the error
