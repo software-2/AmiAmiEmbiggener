@@ -147,6 +147,41 @@ document.addEventListener("keydown", (event) => {
 })();
 
 
+// Add "Search on Buyfriend.moe" text to order items
+(function () {
+  function addBuyfriendText() {
+    const items = document.querySelectorAll('.order-img-list__item');
+    if (items.length === 0) return false;
+
+    items.forEach(item => {
+      if (item.nextElementSibling && item.nextElementSibling.classList.contains('buyfriend-text')) return;
+
+      const productLink = item.querySelector('.order-img-list__item_name a');
+      if (!productLink) return;
+
+      const buyfriendUrl = 'https://buyfriend.moe/search?search=' + encodeURIComponent(productLink.href);
+
+      const a = document.createElement('a');
+      a.className = 'buyfriend-text';
+      a.href = buyfriendUrl;
+      a.target = '_blank';
+      a.textContent = 'Search on Buyfriend.moe';
+      item.parentElement.insertBefore(a, item.nextSibling);
+    });
+
+    return true;
+  }
+
+  const interval = setInterval(() => {
+    if (addBuyfriendText()) {
+      clearInterval(interval);
+    }
+  }, 500);
+
+  setTimeout(() => clearInterval(interval), 10000);
+})();
+
+
 // Convert order list items to real hyperlinks
 (function () {
   function convertOrderLinks() {
